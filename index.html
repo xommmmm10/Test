@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bashdar Technology - Social Links</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', sans-serif; }
+  body {
+    height: 100vh;
+    background: radial-gradient(circle at top, #000428, #004e92);
+    color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  /* Music */
+  audio { display: none; }
+
+  /* Top text */
+  .top-text {
+    font-size: 3rem;
+    margin-top: 20px;
+    text-shadow: 0 0 15px #00f, 0 0 30px #0ff;
+    animation: glow 2s infinite alternate;
+    position: relative;
+    z-index: 10;
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 10px #00f, 0 0 20px #0ff; }
+    to { text-shadow: 0 0 25px #0ff, 0 0 50px #00f; }
+  }
+
+  /* Social buttons */
+  .social-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 10;
+  }
+  .social-button {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 15px 30px;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #00f, 0 0 25px #0ff;
+    animation: pulse 2s infinite alternate;
+  }
+  .social-button:hover {
+    box-shadow: 0 0 35px #0ff, 0 0 70px #00f;
+    transform: scale(1.1);
+  }
+  @keyframes pulse {
+    from { box-shadow: 0 0 15px #00f, 0 0 25px #0ff; }
+    to { box-shadow: 0 0 25px #0ff, 0 0 50px #00f; }
+  }
+
+  /* Table for multiple links */
+  table {
+    margin-top: 50px;
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+  table td {
+    padding: 15px;
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00f;
+    color: white;
+    transition: 0.3s;
+  }
+  table td:hover { transform: scale(1.05); box-shadow: 0 0 20px #0ff; }
+
+  /* Sun & Solar panel */
+  .sun {
+    position: absolute;
+    top: 50px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #fffa70, #ff9000);
+    border-radius: 50%;
+    animation: sunMove 6s infinite alternate ease-in-out;
+    z-index: 5;
+  }
+  @keyframes sunMove {
+    0% { transform: translateX(-50px) translateY(0) rotate(0deg); }
+    100% { transform: translateX(50px) translateY(10px) rotate(15deg); }
+  }
+  .solar-panel {
+    position: absolute;
+    top: 200px;
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(to bottom, #004080, #0080ff);
+    border-radius: 10px;
+    box-shadow: 0 0 15px #0ff;
+    animation: panelGlow 3s infinite alternate;
+    z-index: 5;
+  }
+  @keyframes panelGlow {
+    from { box-shadow: 0 0 15px #0ff; }
+    to { box-shadow: 0 0 30px #00f; }
+  }
+
+  /* Bottom gradient */
+  .bottom-bg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to top, #00f, #fff);
+    z-index: 1;
+  }
+
+  /* Particles */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.8);
+    animation: floatUp linear infinite;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(100vh); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-50px); opacity: 0; }
+  }
+
+  /* Stars */
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+  }
+  @keyframes twinkle {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+  }
+
+  /* Floating button particles */
+  .btn-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #0ff;
+    opacity: 0.8;
+    animation: btnFloat linear infinite;
+    pointer-events: none;
+  }
+  @keyframes btnFloat {
+    0% { transform: translate(0,0) scale(1); opacity: 0.8; }
+    50% { transform: translate(calc(-50px + 100px * var(--randX)), -30px) scale(0.5); opacity: 0.3; }
+    100% { transform: translate(0,0) scale(1); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="top-text">Bashdar Technology</div>
+
+<div class="social-container">
+  <a href="https://facebook.com" target="_blank" class="social-button">Facebook</a>
+  <a href="https://snapchat.com" target="_blank" class="social-button">Snapchat</a>
+  <a href="https://tiktok.com" target="_blank" class="social-button">TikTok</a>
+</div>
+
+<table>
+  <tr>
+    <td>Facebook</td>
+    <td><a href="https://facebook.com" target="_blank" class="social-button">Open</a></td>
+  </tr>
+  <tr>
+    <td>Snapchat</td>
+    <td><a href="https://snapchat.com" target="_blank" class="social-button">Open</a></td>
+  </tr>
+  <tr>
+    <td>TikTok</td>
+    <td><a href="https://tiktok.com" target="_blank" class="social-button">Open</a></td>
+  </tr>
+</table>
+
+<div class="sun"></div>
+<div class="solar-panel"></div>
+<div class="bottom-bg"></div>
+
+<script>
+  // Particles
+  const numParticles = 60;
+  for (let i=0; i<numParticles; i++){
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random()*4+2;
+    p.style.width = `${size}px`;
+    p.style.height = `${size}px`;
+    p.style.left = `${Math.random()*window.innerWidth}px`;
+    p.style.animationDuration = `${Math.random()*10+5}s`;
+    document.body.appendChild(p);
+  }
+
+  // Stars
+  const numStars = 50;
+  for(let i=0;i<numStars;i++){
+    const s = document.createElement('div');
+    s.className='star';
+    s.style.left = `${Math.random()*window.innerWidth}px`;
+    s.style.top = `${Math.random()*(window.innerHeight/2)}px`;
+    const sz=Math.random()*2+1;
+    s.style.width=`${sz}px`;
+    s.style.height=`${sz}px`;
+    document.body.appendChild(s);
+  }
+
+  // Button floating particles
+  const buttons = document.querySelectorAll('.social-button');
+  buttons.forEach(btn=>{
+    for(let i=0;i<5;i++){
+      const bp = document.createElement('div');
+      bp.className='btn-particle';
+      bp.style.left=`${btn.offsetLeft + btn.offsetWidth/2}px`;
+      bp.style.top=`${btn.offsetTop + btn.offsetHeight/2}px`;
+      bp.style.setProperty('--randX', Math.random());
+      document.body.appendChild(bp);
+    }
+  });
+</script>
+
+</body>
+</html>
