@@ -7,25 +7,25 @@
 <style>
 
 body{
-background: linear-gradient(180deg,#000,#020b1f);
-color:white;
+background:black;
 font-family:Arial;
+color:white;
 text-align:center;
-overflow-x:hidden;
 }
 
 /* Title */
+
 h1{
+margin-top:40px;
 font-size:50px;
-margin-top:30px;
 color:white;
-text-shadow:0 0 10px #00ccff,0 0 25px #00ccff;
-animation: glow 3s infinite alternate;
+text-shadow:0 0 10px #00ccff,0 0 30px #00ccff;
+animation:glow 3s infinite alternate;
 }
 
 @keyframes glow{
 from{ text-shadow:0 0 10px #00ccff;}
-to{ text-shadow:0 0 25px #00ccff,0 0 40px white;}
+to{ text-shadow:0 0 30px #00ccff,0 0 50px white;}
 }
 
 /* Table */
@@ -33,62 +33,47 @@ to{ text-shadow:0 0 25px #00ccff,0 0 40px white;}
 table{
 margin:auto;
 margin-top:60px;
-border-spacing:30px;
-animation: float 4s ease-in-out infinite;
+width:60%;
+border-collapse:collapse;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+box-shadow:0 0 20px #00ccff;
+border-radius:15px;
+overflow:hidden;
+animation:float 4s infinite ease-in-out;
 }
 
 @keyframes float{
 0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
+50%{transform:translateY(-8px)}
 100%{transform:translateY(0)}
 }
 
-/* Social Boxes */
+th{
+background:#001a33;
+color:#00ccff;
+padding:15px;
+font-size:22px;
+}
 
-.box{
-width:180px;
-height:120px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.2);
-backdrop-filter:blur(10px);
-border-radius:15px;
-box-shadow:0 0 15px #00ccff;
-transition:0.4s;
+td{
+padding:15px;
+font-size:18px;
+border-top:1px solid rgba(255,255,255,0.2);
 cursor:pointer;
+transition:0.3s;
 }
 
-.box:hover{
-transform:scale(1.1);
-box-shadow:0 0 25px #00ccff,0 0 40px white;
+tr:hover{
+background:rgba(0,204,255,0.2);
+transform:scale(1.02);
 }
 
-a{
-color:white;
-font-size:20px;
-text-decoration:none;
-}
+/* Footer */
 
-/* Details */
-
-.details{
-margin-top:40px;
-padding:20px;
-width:60%;
-margin-left:auto;
-margin-right:auto;
-background:rgba(255,255,255,0.05);
-border-radius:15px;
-box-shadow:0 0 15px #00ccff;
-display:none;
-}
-
-button{
-background:#00ccff;
-border:none;
-padding:10px 20px;
-border-radius:10px;
-color:black;
-cursor:pointer;
+footer{
+margin-top:60px;
+color:#aaa;
 }
 
 </style>
@@ -104,61 +89,51 @@ cursor:pointer;
 </audio>
 
 <table>
+
 <tr>
-
-<td>
-<div class="box">
-<a href="https://facebook.com" target="_blank">
-Facebook
-</a>
-</div>
-</td>
-
-<td>
-<div class="box">
-<a href="https://tiktok.com" target="_blank">
-TikTok
-</a>
-</div>
-</td>
-
-<td>
-<div class="box">
-<a href="https://snapchat.com" target="_blank">
-Snapchat
-</a>
-</div>
-</td>
-
-<td>
-<div class="box" onclick="showDetails()">
-Details
-</div>
-</td>
-
+<th>Social Media</th>
+<th>Click</th>
 </tr>
+
+<tr onclick="openLink('https://facebook.com')">
+<td>Facebook</td>
+<td>Open</td>
+</tr>
+
+<tr onclick="openLink('https://tiktok.com')">
+<td>TikTok</td>
+<td>Open</td>
+</tr>
+
+<tr onclick="openLink('https://snapchat.com')">
+<td>Snapchat</td>
+<td>Open</td>
+</tr>
+
+<tr onclick="showDetails()">
+<td>Details</td>
+<td>View</td>
+</tr>
+
 </table>
 
-<div class="details" id="details">
-
-<h2>Social Media Details</h2>
-
-<p>
-Facebook, TikTok, and Snapchat links of Bashdar Technology.
-</p>
-
-<button onclick="hideDetails()">Close</button>
-
+<div id="details" style="display:none;margin-top:40px;">
+<h2>Social Details</h2>
+<p>Welcome to Bashdar Technology social media page.</p>
 </div>
+
+<footer>
+<p>© Bashdar Technology</p>
+</footer>
 
 <script>
 
-function showDetails(){
-document.getElementById("details").style.display="block";
+function openLink(link){
+window.open(link,"_blank");
 }
 
-function hideDetails(){
-document.getElementById("details").style.display="none";
+function showDetails(){
+document.getElementById("details").style.display="block";
 }
 
 </script>
