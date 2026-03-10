@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Game Studio Tycoon</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🎮 Game Studio Tycoon</h1>
+
+<div class="stats">
+Money: $<span id="money"></span> |
+Fans: <span id="fans"></span> |
+Studio Level: <span id="studio"></span>
+</div>
+
+<h2>Create Game</h2>
+
+<input id="gameName" placeholder="Game name">
+
+<select id="genre">
+<option>Action</option>
+<option>RPG</option>
+<option>Strategy</option>
+<option>Adventure</option>
+<option>Simulation</option>
+</select>
+
+<select id="platform">
+<option>PC</option>
+<option>Mobile</option>
+<option>Console</option>
+</select>
+
+<button onclick="developGame()">Develop Game</button>
+
+<h2>Studio</h2>
+<button onclick="upgradeStudio()">Upgrade Studio ($20000)</button>
+<button onclick="hireEmployee()">Hire Employee ($5000)</button>
+
+<h2>Research</h2>
+<button onclick="researchTech()">Research New Tech ($8000)</button>
+
+<h2>History</h2>
+<ul id="history"></ul>
+
+<h2>Save</h2>
+<button onclick="saveGame()">Save</button>
+<button onclick="loadGame()">Load</button>
+
+<script src="data.js"></script>
+<script src="save.js"></script>
+<script src="game.js"></script>
+
+</body>
+</html>
